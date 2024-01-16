@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2bfps02n1vyi"]
+
+[ext_resource type="Texture2D" uid="uid://ljm0nepe05tu" path="res://assets/santahat.png" id="1_wfh66"]
+[ext_resource type="Script" path="res://scripts/Hat.gd" id="1_x28md"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Hat" type="CharacterBody2D" parent="."]
+position = Vector2(634, 240)
+script = ExtResource("1_x28md")
+metadata/_edit_group_ = true
+
+[node name="Hat_Sprite" type="Sprite2D" parent="Hat"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_wfh66")
