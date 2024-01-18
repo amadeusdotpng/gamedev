@@ -1,15 +1,103 @@
-[gd_scene load_steps=3 format=3 uid="uid://2bfps02n1vyi"]
+[gd_scene load_steps=16 format=3 uid="uid://2bfps02n1vyi"]
 
+[ext_resource type="Texture2D" uid="uid://bitbldsc5wcjd" path="res://assets/lainHairUp.png" id="1_qomnn"]
 [ext_resource type="Texture2D" uid="uid://ljm0nepe05tu" path="res://assets/santahat.png" id="1_wfh66"]
 [ext_resource type="Script" path="res://scripts/Hat.gd" id="1_x28md"]
+[ext_resource type="Texture2D" uid="uid://b1fm4xqj544tu" path="res://assets/cat.png" id="2_ua7xv"]
+[ext_resource type="Texture2D" uid="uid://d3islcu8qb66u" path="res://assets/confetti_sheet_right.png" id="5_nr664"]
+[ext_resource type="Texture2D" uid="uid://6yy1xnvye717" path="res://assets/confetti_sheet_left.png" id="6_16xng"]
+[ext_resource type="Script" path="res://scripts/confetti.gd" id="6_mdamn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dytdb"]
+atlas = ExtResource("5_nr664")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16puj"]
+atlas = ExtResource("5_nr664")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruso5"]
+atlas = ExtResource("5_nr664")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8jbf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dytdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16puj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruso5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2xgv"]
+atlas = ExtResource("6_16xng")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33omm"]
+atlas = ExtResource("6_16xng")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m7d5"]
+atlas = ExtResource("6_16xng")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnh3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2xgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33omm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m7d5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainScene" type="Node2D"]
 
+[node name="Lain" type="Sprite2D" parent="."]
+position = Vector2(360, 323)
+scale = Vector2(0.990833, 0.990833)
+texture = ExtResource("1_qomnn")
+
+[node name="KittyCat" type="Sprite2D" parent="."]
+position = Vector2(890.609, 375.525)
+scale = Vector2(0.24112, 0.241121)
+texture = ExtResource("2_ua7xv")
+
 [node name="Hat" type="CharacterBody2D" parent="."]
-position = Vector2(634, 240)
+position = Vector2(622, 103)
 script = ExtResource("1_x28md")
 metadata/_edit_group_ = true
 
 [node name="Hat_Sprite" type="Sprite2D" parent="Hat"]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_wfh66")
+
+[node name="Confetti_Right" type="AnimatedSprite2D" parent="."]
+position = Vector2(222, 438)
+scale = Vector2(0.600575, 0.600575)
+sprite_frames = SubResource("SpriteFrames_y8jbf")
+frame_progress = 0.0117304
+script = ExtResource("6_mdamn")
+
+[node name="Confetti_Left" type="AnimatedSprite2D" parent="."]
+position = Vector2(915, 434)
+scale = Vector2(0.739583, 0.739583)
+sprite_frames = SubResource("SpriteFrames_mnh3f")
+frame = 1
+frame_progress = 0.136679
+script = ExtResource("6_mdamn")
