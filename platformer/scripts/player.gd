@@ -77,10 +77,9 @@ func vmovement_jump(collision_info):
 			ability_counter[ABILITY.JUMP] -= 1
 			
 func movement_dash():
-	if Input.is_action_just_pressed("mouse_left") and ability_counter[ABILITY.DASH] > 0:
+	if (Input.is_action_just_pressed("mouse_left") or Input.is_action_just_pressed("shift")) and ability_counter[ABILITY.DASH] > 0:
 		velocity = Vector2i(clamp(velocity.x, -300, 300),clamp(velocity.y, -100, 100))
-		
-		dash_velocity = Vector2(sign(get_local_mouse_position().x) * dash_speed, 0)
+		dash_velocity = Vector2(last_direction * dash_speed, 0)
 		ability_counter[ABILITY.DASH] -= 1
 		if ability_counter[ABILITY.JUMP] == 0:
 			ability_counter[ABILITY.JUMP] = 1

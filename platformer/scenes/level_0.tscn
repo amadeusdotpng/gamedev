@@ -736,19 +736,19 @@ offset_left = 1159.0
 offset_top = 868.0
 offset_right = 1525.0
 offset_bottom = 992.0
-text = "Press your Left Mouse Button
+text = "Press your Shift/Left Mouse Button
 to dash!"
 label_settings = ExtResource("6_w2o31")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackDash" type="Label" parent="."]
-offset_left = 1668.0
-offset_top = 699.0
-offset_right = 1850.0
-offset_bottom = 800.0
-text = "Press your Right Mouse
-Button to back dash!"
+offset_left = 1446.0
+offset_top = 442.0
+offset_right = 1823.0
+offset_bottom = 543.0
+text = "Press your Right Mouse Button to back dash!
+Aim opposite to where you want to go!"
 label_settings = ExtResource("6_w2o31")
 horizontal_alignment = 1
 vertical_alignment = 1
