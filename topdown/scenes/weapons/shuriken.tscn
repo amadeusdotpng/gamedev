@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bax31r7xjl0fw"]
+
+[ext_resource type="Script" path="res://scripts/shuriken.gd" id="1_h5fh2"]
+[ext_resource type="Texture2D" uid="uid://c3giwgyrfqxdm" path="res://assets/shuriken.png" id="2_e2ich"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8eiy"]
+
+[node name="shuriken" type="Area2D"]
+script = ExtResource("1_h5fh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_e2ich")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x8eiy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

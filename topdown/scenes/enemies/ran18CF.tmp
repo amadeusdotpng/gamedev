@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0fkdbjljxte1"]
+
+[ext_resource type="Script" path="res://scripts/range_enemy.gd" id="1_dcj0v"]
+[ext_resource type="Texture2D" uid="uid://dgdwh5qr0n2sf" path="res://assets/ChiakiSmug.png" id="2_ne3ef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhu5s"]
+size = Vector2(112, 112)
+
+[node name="range_enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_dcj0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ne3ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rhu5s")

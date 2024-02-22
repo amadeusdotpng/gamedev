@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpk6g0ihsqd6e"]
+
+[ext_resource type="Script" path="res://scripts/sniper_enemy.gd" id="1_ciq2g"]
+[ext_resource type="Texture2D" uid="uid://bhslm8ahx3unw" path="res://assets/sniper_enemy.png" id="2_ucxq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhu5s"]
+size = Vector2(112, 112)
+
+[node name="sniper_enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_ciq2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ucxq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rhu5s")
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

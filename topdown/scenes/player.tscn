@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=3 uid="uid://d2dfynrit6m04"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_3apoi"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="2_fibf4"]
+[ext_resource type="Texture2D" uid="uid://bp7ao3abthg7u" path="res://assets/swordmonkey.tres" id="3_h1ceu"]
+[ext_resource type="Texture2D" uid="uid://r0huhhxnd4t" path="res://assets/shurikenmonkey.tres" id="4_ntfx6"]
+[ext_resource type="Texture2D" uid="uid://cn2gg470hbim0" path="res://assets/gunmonkey.tres" id="5_so8vi"]
+[ext_resource type="Texture2D" uid="uid://dbg6qxuay87t2" path="res://assets/snipermonkey.tres" id="6_4ky3t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ph80m"]
+font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etgk2"]
+bg_color = Color(0, 0, 0, 0.215686)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adv33"]
+bg_color = Color(0.584314, 0.85098, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yno3w"]
+bg_color = Color(0.141176, 0.784314, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_303r2"]
+bg_color = Color(0.0705882, 0.87451, 0.0705882, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_h11ao"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnqi4"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdfa0"]
+font_size = 36
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua7o7"]
+size = Vector2(58, 58)
+
+[node name="player" type="Area2D" groups=["Player"]]
+z_index = 1
+script = ExtResource("1_3apoi")
+
+[node name="SwordTimer" type="Timer" parent="."]
+wait_time = 0.45
+one_shot = true
+
+[node name="ShurikenTimer" type="Timer" parent="."]
+wait_time = 0.45
+one_shot = true
+
+[node name="PistolTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 7.5
+
+[node name="SniperTimer" type="Timer" parent="."]
+wait_time = 1.75
+
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("2_fibf4")
+
+[node name="DashLabel" type="Label" parent="UI"]
+offset_left = -1256.0
+offset_top = -570.0
+offset_right = -915.0
+offset_bottom = -520.0
+text = "Dash"
+label_settings = SubResource("LabelSettings_ph80m")
+
+[node name="DashTimerBar" type="ProgressBar" parent="UI/DashLabel"]
+offset_left = -5.0
+offset_top = 115.0
+offset_right = 495.0
+offset_bottom = 145.0
+theme_override_styles/background = SubResource("StyleBoxFlat_etgk2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_adv33")
+max_value = 7.5
+step = 0.1
+show_percentage = false
+
+[node name="DashBar" type="ProgressBar" parent="UI/DashLabel"]
+offset_left = -5.0
+offset_top = 50.0
+offset_right = 495.0
+offset_bottom = 110.0
+theme_override_styles/background = SubResource("StyleBoxFlat_etgk2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yno3w")
+max_value = 2.0
+step = 1.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="UI"]
+offset_left = -1256.0
+offset_top = -695.0
+offset_right = -915.0
+offset_bottom = -645.0
+text = "Health"
+label_settings = SubResource("LabelSettings_ph80m")
+
+[node name="HealthBar" type="ProgressBar" parent="UI/HealthLabel"]
+offset_left = -5.0
+offset_top = 50.0
+offset_right = 995.0
+offset_bottom = 110.0
+theme_override_styles/background = SubResource("StyleBoxFlat_etgk2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_303r2")
+step = 1.0
+show_percentage = false
+
+[node name="KnightMonkey" type="Label" parent="UI"]
+offset_left = -1195.0
+offset_top = 413.0
+offset_right = -854.0
+offset_bottom = 480.0
+text = "1) Knight Monkey"
+label_settings = SubResource("LabelSettings_ph80m")
+
+[node name="KnightMonkeySprite" type="Sprite2D" parent="UI/KnightMonkey"]
+position = Vector2(-36, 29)
+texture = ExtResource("3_h1ceu")
+
+[node name="NinjaMonkey" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0.294118)
+offset_left = -1195.0
+offset_top = 488.0
+offset_right = -854.0
+offset_bottom = 555.0
+text = "2) Ninja Monkey"
+label_settings = SubResource("LabelSettings_h11ao")
+
+[node name="NinjaMonkeySprite" type="Sprite2D" parent="UI/NinjaMonkey"]
+position = Vector2(-36, 29)
+texture = ExtResource("4_ntfx6")
+
+[node name="DartMonkey" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0.294118)
+offset_left = -1195.0
+offset_top = 563.0
+offset_right = -854.0
+offset_bottom = 630.0
+text = "3) Dart Monkey
+"
+label_settings = SubResource("LabelSettings_gnqi4")
+
+[node name="DartMonkeySprite" type="Sprite2D" parent="UI/DartMonkey"]
+position = Vector2(-36, 29)
+texture = ExtResource("5_so8vi")
+
+[node name="SniperMonkey" type="Label" parent="UI"]
+modulate = Color(1, 1, 1, 0.298039)
+offset_left = -1195.0
+offset_top = 638.0
+offset_right = -854.0
+offset_bottom = 705.0
+text = "4) Sniper Monkey
+"
+label_settings = SubResource("LabelSettings_kdfa0")
+
+[node name="SniperMonkeySprite" type="Sprite2D" parent="UI/SniperMonkey"]
+position = Vector2(-36, 29)
+texture = ExtResource("6_4ky3t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_speed = 1.035
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ua7o7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("3_h1ceu")
+
+[connection signal="area_entered" from="." to="." method="_on_player_hitbox_area_entered"]
+[connection signal="timeout" from="SwordTimer" to="." method="_on_sword_timer_timeout"]
+[connection signal="timeout" from="ShurikenTimer" to="." method="_on_shuriken_timer_timeout"]
+[connection signal="timeout" from="PistolTimer" to="." method="_on_pistol_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="SniperTimer" to="." method="_on_sniper_timer_timeout"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

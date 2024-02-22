@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5y5sklfc4yw4"]
+
+[ext_resource type="Script" path="res://scripts/basic_projectile.gd" id="1_d4gj5"]
+[ext_resource type="Texture2D" uid="uid://b15tltbt5ek5x" path="res://assets/basic_projectile.png" id="2_g16j0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8eiy"]
+
+[node name="bullet" type="Area2D" groups=["Enemy_Projectile"]]
+script = ExtResource("1_d4gj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 18)
+texture = ExtResource("2_g16j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x8eiy")

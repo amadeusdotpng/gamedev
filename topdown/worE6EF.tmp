@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drq2wxe3eexds"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_0vgfc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ta82e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_68fqx"]
+
+[node name="World" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ta82e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_68fqx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999399, 0.0154409, -0.0310253, 0.0295779, -0.846578, 0.531442, -0.0180594, -0.532041, -0.846526, 0, 3.93192, -6.93105)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.894334, 0.4474, 0, -0.4474, 0.894334, 0, 2.90195, 5.14532)
+script = ExtResource("1_0vgfc")
