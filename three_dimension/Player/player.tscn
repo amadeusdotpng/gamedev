@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce410anfftu7i"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_nrars"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_try0x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ayrh"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_nrars")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_try0x")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0ayrh")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Instructions" type="Label" parent="UI"]
+offset_right = 112.0
+offset_bottom = 53.0
+text = "Aim and fly around with mouse
+
+LMB: boost
+ESC: get your mouse back
+TAB: hide/unhide instructions"

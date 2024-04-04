@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://chna14dbhhwei"]
+
+[ext_resource type="Shader" path="res://Terrain/clipmap.gdshader" id="1_2ngq8"]
+[ext_resource type="Script" path="res://Terrain/terrain.gd" id="1_ay5la"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bydj3"]
+render_priority = 0
+shader = ExtResource("1_2ngq8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bpdxq"]
+size = Vector2(512, 512)
+subdivide_width = 511
+subdivide_depth = 511
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ay5la")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_bydj3")
+mesh = SubResource("PlaneMesh_bpdxq")
+skeleton = NodePath("")
