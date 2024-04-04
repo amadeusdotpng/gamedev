@@ -23,8 +23,8 @@ shape = SubResource("SphereShape3D_0ayrh")
 [node name="Instructions" type="Label" parent="UI"]
 offset_right = 112.0
 offset_bottom = 53.0
-text = "Aim and fly around with mouse
+text = "Aim and fly around with mouse.
+Please hit SPACE to be able to play properly.
 
 LMB: boost
-ESC: get your mouse back
 TAB: hide/unhide instructions"

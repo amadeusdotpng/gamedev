@@ -5,22 +5,16 @@ var SPEED = 25
 const JUMP_VELOCITY = 4.5
 const GRAV = 1
 
-var mouse_captured = true
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotation.y -= event.relative.x * 0.001
-		rotation.x = clamp(rotation.x - event.relative.y * 0.001, -PI/2, PI/2)
+		rotation.y -= event.relative.x * 0.0025
+		rotation.x = clamp(rotation.x - event.relative.y * 0.0025, -PI/2, PI/2)
 		
 	if Input.is_action_just_pressed("ToggleMouseCaptureMode"):
-		if mouse_captured:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		mouse_captured = not mouse_captured
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if Input.is_action_just_pressed("HideInstructions"):
 		$UI/Instructions.visible = not $UI/Instructions.visible
@@ -34,8 +28,8 @@ func movement(delta):
 		velocity -= basis.z * 75
 	velocity -= basis.z * SPEED * delta
 
-	velocity.x *= 0.995
-	velocity.z *= 0.995
+	velocity.x *= 0.9975
+	velocity.z *= 0.9975
 	
 	
 	#var sprint = 2 if Input.is_action_pressed("Sprint") else 1
